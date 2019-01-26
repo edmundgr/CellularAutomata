@@ -1,4 +1,4 @@
-# Callular Automata
+# CellularAutomata
 
 This project is a Windows desktop application to display 2D Cellular Automata
 
