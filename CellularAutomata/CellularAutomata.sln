@@ -1,5 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellularAutomataEngine", "CellularAutomataEngine\CellularAutomataEngine.csproj", "{F17FDF79-F925-4BA3-9F41-4973465FDABA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAViewControl", "CAViewControl\CAViewControl.csproj", "{2921CBF2-D186-4C90-BAC6-EC9F94EBEC03}"
@@ -7,6 +9,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAWinApp", "CAWinApp\CAWinApp.csproj", "{46B4F687-007A-4C39-81C3-FB6F91FF4CE9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CellularAutomataEngineTest", "CellularAutomataEngineTest\CellularAutomataEngineTest.csproj", "{447EA0E6-FF8F-4D60-9E59-E85909A3064A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A966D535-14C9-4A82-B1CC-273571863654}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE = ..\LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB80DDF3-6810-4E5C-89BE-EF9DBD90CE21}
 	EndGlobalSection
 EndGlobal
