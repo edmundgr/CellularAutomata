@@ -1,0 +1,26 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CellularAutomata/UpgradeLog.htm
+/CellularAutomata/UpgradeLog.XML
+/CellularAutomata/CellularAutomata.v11.suo
+/CellularAutomata/CellularAutomata.sln.old
+/CellularAutomata/Backup
+/CellularAutomata/Backup1
+/.vs/Visual Studio Projects/v15/.suo
+/.vs/slnx.sqlite
+/CellularAutomata/.vs/CellularAutomata/v15
+/CellularAutomata/CAViewControl/bin
+/CellularAutomata/CAViewControl/obj
+/CellularAutomata/CAWinApp/bin
+/CellularAutomata/CAWinApp/obj
+/CellularAutomata/CellularAutomataEngine/bin
+/CellularAutomata/CellularAutomataEngine/obj
+/CellularAutomata/CellularAutomataEngine/CellularAutomataEngine.csproj.user
+/CellularAutomata/CAWinApp/CAWinApp.csproj.user
+/CellularAutomata/CellularAutomataEngineTest/bin/Debug
+/CellularAutomata/CellularAutomataEngineTest/obj
+/CellularAutomata/TestResults/212020745_HCU-JWXVYZ1 2015-02-07 22_29_15/Out
+/CellularAutomata/_UpgradeReport_Files
+/CellularAutomata/CellularAutomata.sln.DotSettings.user
