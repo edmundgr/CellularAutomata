@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 
 namespace CellularAutomataEngine
@@ -7,15 +8,16 @@ namespace CellularAutomataEngine
     /// </summary>
     public class CAEngine
     {
-        int _ruleNumber;
-        readonly int _rowLen;
-        int[] _row;
-        readonly int[] _nextRow;
+        private int _ruleNumber;
+        private readonly int _rowLen;
+        private int[] _row;
+        private readonly int[] _nextRow;
+        public const int DefaultRule = 30;
 
         public CAEngine(int rowlen)
         {
             if (rowlen < 3) rowlen = 3;
-            _ruleNumber = 110;
+            _ruleNumber = DefaultRule;
             _rowLen = rowlen;
             _row = new int[_rowLen];
             _nextRow = new int[_rowLen];
@@ -31,7 +33,7 @@ namespace CellularAutomataEngine
             get { return _ruleNumber; }
             set
             {
-                _ruleNumber = IsValidRule(value) ? value : 110;
+                _ruleNumber = IsValidRule(value) ? value : Math.Max(0, Math.Min(255, value));
             }
         }
 
@@ -40,7 +42,7 @@ namespace CellularAutomataEngine
             get { return _row; }
             set
             {
-                if (value != null && value.Length == _rowLen)
+                if (value != null && value.Length == RowLength)
                 {
                     value.CopyTo(_row, 0);
                 }
@@ -50,7 +52,7 @@ namespace CellularAutomataEngine
 
         private static bool IsValidRule(int value)
         {
-            return value > 1 && value < 254;
+            return value >= 0 && value <= 255;
         }
 
         private int ApplyRule(int num)    // Num is the binary representation of the three cells
@@ -72,12 +74,12 @@ namespace CellularAutomataEngine
         {
             //int[] NextRow = new int[RowLen];
 
-            _nextRow[0] = ApplyRule((_row[_rowLen - 1] << 2) + (_row[0] << 1) + _row[1]);
-            for (int index = 1; index < _rowLen - 1; index++)
+            _nextRow[0] = ApplyRule((CurrentRow[RowLength - 1] << 2) + (CurrentRow[0] << 1) + CurrentRow[1]);
+            for (int index = 1; index < RowLength - 1; index++)
             {
-                _nextRow[index] = ApplyRule((_row[index - 1] << 2) + (_row[index] << 1) + _row[index + 1]);
+                _nextRow[index] = ApplyRule((CurrentRow[index - 1] << 2) + (CurrentRow[index] << 1) + CurrentRow[index + 1]);
             }
-            _nextRow[_rowLen - 1] = ApplyRule((_row[_rowLen - 2] << 2) + (_row[_rowLen - 1] << 1) + _row[0]);
+            _nextRow[RowLength - 1] = ApplyRule((CurrentRow[RowLength - 2] << 2) + (CurrentRow[RowLength - 1] << 1) + CurrentRow[0]);
 
             // copy the NextRow into the previous row
             _nextRow.CopyTo(_row, 0);

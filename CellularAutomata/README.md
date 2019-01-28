@@ -28,7 +28,7 @@ See installing
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Let me know if you want to contribute.
 
 ## Versioning
 
@@ -36,11 +36,11 @@ Currently this project is unversioned.
 
 ## Authors
 
-* **Edmund Greaves** - *All Development* - [edmundgr](https://github.com/edmundgr)
+* **Edmund Greaves** - *Lead Developer* - [edmundgr](https://github.com/edmundgr)
 
 ## License
 
-This project is licensed under the GNU General Public License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU General Public License - see the [../LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 

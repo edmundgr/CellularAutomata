@@ -123,6 +123,7 @@
     <Compile Include="CAViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="DirectBitmap.cs" />
     <EmbeddedResource Include="CAViewControl.resx">
       <DependentUpon>CAViewControl.cs</DependentUpon>
       <SubType>Designer</SubType>

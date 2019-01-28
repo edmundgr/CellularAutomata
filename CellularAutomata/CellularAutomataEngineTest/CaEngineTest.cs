@@ -35,7 +35,7 @@ namespace CellularAutomataEngineTest
         public void NewEngineHasDefaultRule()
         {
             var caEngine = new CAEngine(10);
-            Assert.AreEqual(110, caEngine.RuleNumber);
+            Assert.AreEqual(CAEngine.DefaultRule, caEngine.RuleNumber);
         }
 
         [TestMethod]
@@ -47,13 +47,17 @@ namespace CellularAutomataEngineTest
         }
 
         [TestMethod]
-        public void SetRuleOutOfBoundsGivesDefaultRule()
+        public void SetRuleOutOfBoundsGivesInBoundsRule()
         {
             var caEngine = new CAEngine(10);
-            caEngine.RuleNumber = 254;
-            Assert.AreEqual(110, caEngine.RuleNumber);
-            caEngine.RuleNumber = 1;
-            Assert.AreEqual(110, caEngine.RuleNumber);
+            caEngine.RuleNumber = -1;
+            Assert.AreEqual(0, caEngine.RuleNumber);
+            caEngine.RuleNumber = 0;
+            Assert.AreEqual(0, caEngine.RuleNumber);
+            caEngine.RuleNumber = 255;
+            Assert.AreEqual(255, caEngine.RuleNumber);
+            caEngine.RuleNumber = 256;
+            Assert.AreEqual(255, caEngine.RuleNumber);
         }
 
         [TestMethod]

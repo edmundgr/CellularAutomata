@@ -1,17 +1,12 @@
-using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 using CellularAutomataEngine;
 
-namespace CellularAutomata
+namespace CAViewControl
 {
-	/// <summary>
-	/// Summary description for UserControl1.
-	/// </summary>
-   public class CAViewControl : System.Windows.Forms.UserControl
+    /// <summary>
+    /// Summary description for UserControl1.
+    /// </summary>
+    public class CAViewControl : System.Windows.Forms.UserControl
    {
       private System.Windows.Forms.PictureBox CAPictureBox;
       /// <summary>
@@ -99,7 +94,7 @@ namespace CellularAutomata
          }
       }
 
-      private void DrawRow(Bitmap myBitmap, int row, int [] curRow)
+      private void DrawRow(DirectBitmap myBitmap, int row, int [] curRow)
       {
          int col = 0;
          int bmprow = 0;
@@ -121,29 +116,29 @@ namespace CellularAutomata
 
       public void Generate()
       {
-         int[] curRow = new int[this.CAPictureBox.Size.Width/myCellSize];
+         int[] curRow = new int[CAPictureBox.Size.Width/myCellSize];
          int col = 0;
          int row = 0;
          // create the first row(s)
          for (col=0; col<curRow.Length; col++)
             curRow[col] = 0;
          curRow[(int)(curRow.Length / 2)] = 1;
-         this.myCAEngine.CurrentRow = curRow;
+         myCAEngine.CurrentRow = curRow;
 
-         Bitmap myBitmap = new Bitmap(this.CAPictureBox.Size.Width, this.CAPictureBox.Size.Height);
+         var myBitmap = new DirectBitmap(CAPictureBox.Size.Width, CAPictureBox.Size.Height);
 
          DrawRow(myBitmap, 0, curRow);
          // draw a bitmap with the rows
          for (row=1; row<myBitmap.Size.Height/myCellSize; row++)
          {
-            this.myCAEngine.GetNextRow().CopyTo(curRow, 0);
+            myCAEngine.GetNextRow().CopyTo(curRow, 0);
             DrawRow(myBitmap, row, curRow);
          }
 
          Bitmap oldBitmap = null;
-         if (this.CAPictureBox.Image != null)
-            oldBitmap = (Bitmap) this.CAPictureBox.Image;
-         this.CAPictureBox.Image = myBitmap;
+         if (CAPictureBox.Image != null)
+            oldBitmap = (Bitmap) CAPictureBox.Image;
+         CAPictureBox.Image = myBitmap.Bitmap;
          if (oldBitmap != null)
             oldBitmap.Dispose();
       }
